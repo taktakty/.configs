@@ -10,7 +10,7 @@ git clone git@github.com:taktakty/.configs.git
 cd .configs
 ln .vimrc ~/
 ln .zshrc ~/
-mkdif -p ~/.cache/userconfig
+mkdir -p ~/.cache/userconfig
 ln plugin.toml ~/.cache/userconfig
 ln plugin_lazy.toml ~/.cache/userconfig
 ```
