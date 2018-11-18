@@ -9,4 +9,7 @@ build = 'make'
  repo = 'Shougo/dein.vim'
 
 [[plugins]]
+ repo = 'Shougo/vimfiler.vim'
+
+[[plugins]]
  repo = 'kannokanno/previm'

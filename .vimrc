@@ -6,38 +6,44 @@ set tabstop=2
 set backspace=indent,eol,start
 set whichwrap=b,s,h,l,<,>,[,]
 let g:previm_open_cmd = 'open -a Safari'
+nnoremap j gj
+nnoremap k gk
+nnoremap gj j
+nnoremap gk k
 augroup PrevimSettings
   autocmd!
   autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
 augroup END
+let mapleader = ","
+
 "unite configs----------------------------
 let g:unite_enable_start_insert=1
 let g:unite_source_history_yank_enable =1
 nmap <Space> [unite]
-"スペースキーとaキーでカレントディレクトリを表示
 nnoremap <silent> [unite]a :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
-"スペースキーとfキーでバッファと最近開いたファイル一覧を表示
 nnoremap <silent> [unite]f :<C-u>Unite<Space>buffer file_mru<CR>
-"スペースキーとdキーで最近開いたディレクトリを表示
 nnoremap <silent> [unite]d :<C-u>Unite<Space>directory_mru<CR>
-"スペースキーとbキーでバッファを表示
 nnoremap <silent> [unite]b :<C-u>Unite<Space>buffer<CR>
-"スペースキーとrキーでレジストリを表示
 nnoremap <silent> [unite]r :<C-u>Unite<Space>register<CR>
-"スペースキーとtキーでタブを表示
 nnoremap <silent> [unite]t :<C-u>Unite<Space>tab<CR>
-"スペースキーとhキーでヒストリ/ヤンクを表示
 nnoremap <silent> [unite]h :<C-u>Unite<Space>history/yank<CR>
-"スペースキーとoキーでoutline
 nnoremap <silent> [unite]o :<C-u>Unite<Space>outline<CR>
-"スペースキーとENTERキーでfile_rec:!
 nnoremap <silent> [unite]<CR> :<C-u>Unite<Space>file_rec:!<CR>
-"unite.vimを開いている間のキーマッピング
+nnoremap <silent> [unite]c :<C-u>Unite bookmark<CR>
 autocmd FileType unite call s:unite_my_settings()
 function! s:unite_my_settings()"{{{
-    " ESCでuniteを終了
+		imap <buffer> jj <Plug>(unite_insert_leave)
+    imap <buffer> <C-w> <Plug>(unite_delete_backward_path)
     nmap <buffer> <ESC> <Plug>(unite_exit)
+    nnoremap <silent><buffer><expr> f unite#smart_map('f', unite#do_action('vimfiler'))
+    inoremap <silent><buffer><expr> f unite#smart_map('f', unite#do_action('vimfiler'))
 endfunction"}}}
+"vimfiler configs
+let g:vimfiler_as_default_explorer = 1
+let g:vimfiler_safe_mode_by_default = 0
+nnoremap <silent> <Leader>fi :<C-u>VimFilerBufferDir -split -simple -winwidth=35 -no-quit<CR>
+nnoremap <silent> <Leader>fe :<C-u>VimFilerBufferDir -quit<CR>
+
 "dein Scripts-----------------------------
 if &compatible
   set nocompatible               " Be iMproved
