@@ -43,7 +43,12 @@ let g:vimfiler_as_default_explorer = 1
 let g:vimfiler_safe_mode_by_default = 0
 nnoremap <silent> <Leader>fi :<C-u>VimFilerBufferDir -split -simple -winwidth=35 -no-quit<CR>
 nnoremap <silent> <Leader>fe :<C-u>VimFilerBufferDir -quit<CR>
-
+"quick run
+let g:quickrun_config={'*': {'split': 'vertical'}}
+nnoremap <silent> <Leader>rr :QuickRun<CR>
+au FileType qf nnoremap <silent><buffer>q :quit<CR>
+set splitbelow 
+set splitright
 "dein Scripts-----------------------------
 if &compatible
   set nocompatible               " Be iMproved
