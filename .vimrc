@@ -3,6 +3,11 @@ syntax on
 set clipboard+=unnamed
 set number
 set tabstop=2
+set noswapfile
+set autoread
+set hidden
+set nobackup
+set showcmd
 set backspace=indent,eol,start
 set whichwrap=b,s,h,l,<,>,[,]
 let g:previm_open_cmd = 'open -a Safari'
@@ -10,6 +15,15 @@ nnoremap j gj
 nnoremap k gk
 nnoremap gj j
 nnoremap gk k
+nnoremap s <Nop>
+nnoremap sj <C-w>j
+nnoremap sk <C-w>k
+nnoremap sl <C-w>l
+nnoremap sh <C-w>h
+nnoremap sJ <C-w>J
+nnoremap sK <C-w>K
+nnoremap sL <C-w>L
+nnoremap sH <C-w>H
 augroup PrevimSettings
   autocmd!
   autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
@@ -43,6 +57,7 @@ let g:vimfiler_as_default_explorer = 1
 let g:vimfiler_safe_mode_by_default = 0
 nnoremap <silent> <Leader>fi :<C-u>VimFilerBufferDir -split -simple -winwidth=35 -no-quit<CR>
 nnoremap <silent> <Leader>fe :<C-u>VimFilerBufferDir -quit<CR>
+
 "quick run
 let g:quickrun_config={'*': {'split': 'vertical'}}
 nnoremap <silent> <Leader>rr :QuickRun<CR>
