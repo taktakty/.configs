@@ -1,17 +1,13 @@
 Quick Setup
 ===
 
-# Command
-
 Run below commands
 
 ```bash
 git clone git@github.com:taktakty/.configs.git
-cd .configs
-ln .vimrc ~/
-ln .zshrc ~/
+ln -sf ~/.configs/.vimrc ~/.vimrc
+ln -sf ~/.configs/.zshrc ~/.zshrc
 mkdir -p ~/.cache/userconfig
-ln plugin.toml ~/.cache/userconfig
-ln plugin_lazy.toml ~/.cache/userconfig
+ln -sf ~/.configs/plugin.toml ~/.cache/userconfig/plugin.toml
+ln -sf ~/.configs/plugin_lazy.toml ~/.cache/userconfig/plugin_lazy.toml
 ```
-
