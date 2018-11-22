@@ -51,6 +51,7 @@ function! s:unite_my_settings()"{{{
     nmap <buffer> <ESC> <Plug>(unite_exit)
     nnoremap <silent><buffer><expr> f unite#smart_map('f', unite#do_action('vimfiler'))
     inoremap <silent><buffer><expr> f unite#smart_map('f', unite#do_action('vimfiler'))
+		call unite#custom_default_action('file', 'tabopen')
 endfunction"}}}
 "vimfiler configs
 let g:vimfiler_as_default_explorer = 1
