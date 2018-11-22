@@ -6,7 +6,10 @@ repo = 'Shougo/vimproc.vim'
 build = 'make'
 
 [[plugins]]
- repo = 'Shougo/dein.vim'
+repo = 'Shougo/neomru.vim'
+
+[[plugins]]
+ repo = 'Shougo/unite.vim'
 
 [[plugins]]
  repo = 'Shougo/vimfiler.vim'
