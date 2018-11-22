@@ -12,6 +12,9 @@ repo = 'Shougo/neomru.vim'
  repo = 'Shougo/unite.vim'
 
 [[plugins]]
+ repo = 'Shougo/unite.vim'
+
+[[plugins]]
  repo = 'Shougo/vimfiler.vim'
 
 [[plugins]]

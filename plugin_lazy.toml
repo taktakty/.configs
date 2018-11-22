@@ -12,3 +12,4 @@ on_ft = ['python']
 
 [[plugins]]
 repo = "airblade/vim-gitgutter"
+
