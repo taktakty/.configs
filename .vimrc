@@ -1,5 +1,7 @@
 colorscheme molokai
 syntax on
+language en_US
+set mouse=a
 set clipboard+=unnamed
 set number
 set tabstop=2
@@ -10,6 +12,7 @@ set nobackup
 set showcmd
 set backspace=indent,eol,start
 set whichwrap=b,s,h,l,<,>,[,]
+set termguicolors
 let g:previm_open_cmd = 'open -a Safari'
 nnoremap j gj
 nnoremap k gk
@@ -58,6 +61,11 @@ let g:vimfiler_as_default_explorer = 1
 let g:vimfiler_safe_mode_by_default = 0
 nnoremap <silent> <Leader>fi :<C-u>VimFilerBufferDir -split -simple -winwidth=35 -no-quit<CR>
 nnoremap <silent> <Leader>fe :<C-u>VimFilerBufferDir -quit<CR>
+"around python
+let g:neocomplete#sources#omni#input_patterns = {
+\   "python" : '\h\w*\|[^. \t]\.\w*',
+\}
+autocmd FileType python setlocal omnifunc=jedi#completions
 
 "quick run
 let g:quickrun_config={'*': {'split': 'vertical'}}
@@ -65,6 +73,8 @@ nnoremap <silent> <Leader>rr :QuickRun<CR>
 au FileType qf nnoremap <silent><buffer>q :quit<CR>
 set splitbelow 
 set splitright
+
+
 "dein Scripts-----------------------------
 if &compatible
   set nocompatible               " Be iMproved
@@ -105,3 +115,5 @@ if dein#check_install()
   call dein#install()
 endif
 "End dein Scripts-------------------------
+" deoplete
+let g:deoplete#enable_at_startup = 1

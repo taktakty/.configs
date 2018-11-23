@@ -3,6 +3,10 @@ repo = "davidhalter/jedi-vim"
 on_ft = ['python']
 
 [[plugins]]
+repo = "lambdalisue/vim-pyenv"
+on_ft = ['python']
+
+[[plugins]]
 repo = "jmcantrell/vim-virtualenv"
 on_ft = ['python']
 

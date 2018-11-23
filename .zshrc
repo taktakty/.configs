@@ -22,6 +22,8 @@ SAVEHIST=1000000
 PROMPT="%{${fg[green]}%}[%n@%m]%{${reset_color}%} %~
 %# "
 
+# neovim config
+export XDG_CONFIG_HOME=$HOME/.neovim
 
 # 単語の区切り文字を指定する
 autoload -Uz select-word-style
