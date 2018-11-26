@@ -1,5 +1,5 @@
 [[plugins]]
- repo = 'Shougo/dein.vim'
+repo = 'Shougo/dein.vim'
 
 [[plugins]]
 repo = 'Shougo/vimproc.vim'
@@ -12,7 +12,11 @@ repo = 'Shougo/deoplete.nvim'
 repo = 'Shougo/neomru.vim'
 
 [[plugins]]
- repo = 'Shougo/vimfiler.vim'
+repo = 'Shougo/denite.nvim'
 
 [[plugins]]
- repo = 'kannokanno/previm'
+repo = 'Shougo/defx.nvim'
+
+[[plugins]]
+repo = 'airblade/vim-gitgutter'
+

@@ -1,8 +1,8 @@
 
 #########################################
 # 環境変数
-export LANG=ja_JP.UTF-8
-
+export LANG=en_US.UTF-8
+export XDG_CONFIG_HOME=~/.config
 # 色を使用出来るようにする
 autoload -Uz colors
 colors
@@ -22,8 +22,6 @@ SAVEHIST=1000000
 PROMPT="%{${fg[green]}%}[%n@%m]%{${reset_color}%} %~
 %# "
 
-# neovim config
-export XDG_CONFIG_HOME=$HOME/.neovim
 
 # 単語の区切り文字を指定する
 autoload -Uz select-word-style
@@ -145,6 +143,10 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+alias vi='nvim'
+alias vim='nvim'
+
+
 if [ $commands[kubectl] ]; then
   source <(kubectl completion zsh)
 fi
@@ -155,8 +157,8 @@ kubeon
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 # pyenv
-
 export PYENV_ROOT=$HOME/.pyenv
 export PATH=$PYENV_ROOT/bin:$PATH
 eval "$(pyenv init -)"
+if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
 
