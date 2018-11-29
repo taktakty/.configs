@@ -16,8 +16,8 @@ set termguicolors
 set inccommand=split
 let g:previm_open_cmd = 'open -a Safari'
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-let g:python_host_prog  = 'User/tak/.pyenv/versions/py2neovim/bin/python'
-let g:python3_host_prog  = 'User/tak/.pyenv/versions/py3neovim/bin/python'
+let g:python_host_prog  = '/Users/tak/.pyenv/versions/py2neovim/bin/python'
+let g:python3_host_prog  = '/Users/tak/.pyenv/versions/py3neovim/bin/python'
 
 nnoremap j gj
 nnoremap k gk
@@ -41,11 +41,6 @@ let mapleader = ","
 "vimfiler configs
 let g:vimfiler_as_default_explorer = 1
 let g:vimfiler_safe_mode_by_default = 0
-"around python
-let g:neocomplete#sources#omni#input_patterns = {
-\   "python" : '\h\w*\|[^. \t]\.\w*',
-\}
-autocmd FileType python setlocal omnifunc=jedi#completions
 
 "dein Scripts-----------------------------
 if &compatible
