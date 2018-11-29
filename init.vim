@@ -1,3 +1,4 @@
+colorscheme molokai
 syntax on
 language en_US
 set mouse=a
@@ -15,8 +16,8 @@ set termguicolors
 set inccommand=split
 let g:previm_open_cmd = 'open -a Safari'
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-let g:python_host_prog  = '/Users/tak/.pyenv/versions/py2neovim/bin/python'
-let g:python3_host_prog  = '/Users/tak/.pyenv/versions/py3neovim/bin/python'
+let g:python_host_prog  = 'User/tak/.pyenv/versions/py2neovim/bin/python'
+let g:python3_host_prog  = 'User/tak/.pyenv/versions/py3neovim/bin/python'
 
 nnoremap j gj
 nnoremap k gk
@@ -31,6 +32,7 @@ nnoremap sJ <C-w>J
 nnoremap sK <C-w>K
 nnoremap sL <C-w>L
 nnoremap sH <C-w>H
+nnoremap <ESC><ESC> :noh<CR>
 augroup PrevimSettings
   autocmd!
   autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
@@ -45,28 +47,21 @@ let g:neocomplete#sources#omni#input_patterns = {
 \}
 autocmd FileType python setlocal omnifunc=jedi#completions
 
-"quick run
-let g:quickrun_config={'*': {'split': 'vertical'}}
-nnoremap <silent> <Leader>rr :QuickRun<CR>
-au FileType qf nnoremap <silent><buffer>q :quit<CR>
-set splitbelow
-set splitright
-
 "dein Scripts-----------------------------
 if &compatible
   set nocompatible               " Be iMproved
 endif
 
 " Required:
-set runtimepath+=/Users/tak/.cache/dein/repos/github.com/Shougo/dein.vim
+set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
 
 " Required:
-if dein#load_state('/Users/tak/.cache/dein')
-  call dein#begin('/Users/tak/.cache/dein')
+if dein#load_state('~/.cache/dein')
+  call dein#begin('~/.cache/dein')
 
   " Let dein manage dein
   " Required:
-  call dein#add('/Users/tak/.cache/dein/repos/github.com/Shougo/dein.vim')
+  call dein#add('~/.cache/dein/repos/github.com/Shougo/dein.vim')
 
   " Add or remove your plugins here like this:
   "call dein#add('Shougo/neosnippet.vim')
@@ -81,7 +76,7 @@ if dein#load_state('/Users/tak/.cache/dein')
   "call dein#add('Shougo/defx.nvim')
   "call dein#add('airblade/vim-gitgutter')
   
-  let g:config_dir  = expand('/Users/tak/.config/nvim')
+  let g:config_dir  = expand('~/.config/nvim')
   let s:toml        = g:config_dir . '/dein.toml'
   let s:lazy_toml   = g:config_dir . '/dein_lazy.toml'
   call dein#load_toml(s:toml,      {'lazy': 0})
@@ -102,10 +97,16 @@ if dein#check_install()
 endif
 
 "End dein Scripts-------------------------
+
+"quick run
+let g:quickrun_config={'*': {'split': 'vertical'}}
+nnoremap <silent> <Leader>rr :QuickRun<CR>
+au FileType qf nnoremap <silent><buffer>q :quit<CR>
+set splitbelow
+set splitright
+
 " deoplete
 let g:deoplete#enable_at_startup = 1
-" colorscheme
-colorscheme molokai
 " denite configs -------------------------
 call denite#custom#map('insert', 'jj', '<denite:enter_mode:normal>')
 call denite#custom#map('insert', "<CR>", '<denite:do_action:tabopen>')
