@@ -16,6 +16,7 @@ set termguicolors
 set inccommand=split
 let g:previm_open_cmd = 'open -a Safari'
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+let $PATH = $PYENV_VIRTUAL_ENV."/bin:".$PATH
 let g:python_host_prog  = '/Users/tak/.pyenv/versions/py2neovim/bin/python'
 let g:python3_host_prog  = '/Users/tak/.pyenv/versions/py3neovim/bin/python'
 
@@ -169,3 +170,13 @@ function! s:defx_my_settings() abort
   nnoremap <silent><buffer><expr> cd
   \ defx#do_action('change_vim_cwd')
 endfunction
+
+"vim-airline
+let g:airline_powerline_fonts = 1
+let g:airline_theme = 'molokai'
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#hunks#enabled = 0
+let g:airline#extensions#virtualenv#enabled = 1
+"quickrun
+let g:quickrun_config = {}
+let g:quickrun_config['*'] = {'runner': 'vimproc'}
