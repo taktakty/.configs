@@ -1,56 +1,35 @@
 
 #########################################
-# 環境変数
 export LANG=en_US.UTF-8
 export XDG_CONFIG_HOME=~/.config
-# 色を使用出来るようにする
 autoload -Uz colors
 colors
 
-# vim 風キーバインドにする
 bindkey -v
 
-# ヒストリの設定
 HISTFILE=~/.zsh_history
 HISTSIZE=1000000
 SAVEHIST=1000000
 
-# プロンプト
-# 1行表示
-# PROMPT="%~ %# "
-# 2行表示
 PROMPT="%{${fg[green]}%}[%n@%m]%{${reset_color}%} %~
 %# "
 
-
-# 単語の区切り文字を指定する
 autoload -Uz select-word-style
 select-word-style default
-# ここで指定した文字は単語区切りとみなされる
-# / も区切りと扱うので、^W でディレクトリ１つ分を削除できる
 zstyle ':zle:*' word-chars " /=;@:{},|"
 zstyle ':zle:*' word-style unspecified
 
 ########################################
-# 補完
-# 補完機能を有効にする
 autoload -Uz compinit
 compinit
 
-# 補完で小文字でも大文字にマッチさせる
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 
-# ../ の後は今いるディレクトリを補完しない
 zstyle ':completion:*' ignore-parents parent pwd ..
 
-# sudo の後ろでコマンド名を補完する
 zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin /usr/local/go \
                    /usr/sbin /usr/bin /sbin /bin /usr/X11R6/bin
 export MAILCHECK=0
-# ps コマンドのプロセス名補完 If you come from bash you might have to change your $PATH.
-#export PATH=/opt/local/bin:$HOME/bin:/usr/local/bin:$PATH
-
-# Path to your oh-my-zsh installation.
 export ZSH=/Users/tak/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
@@ -82,7 +61,7 @@ ZSH_THEME="amuse"
 # DISABLE_LS_COLORS="true"
 
 # Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
+DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
 # ENABLE_CORRECTION="true"
@@ -145,7 +124,7 @@ source $ZSH/oh-my-zsh.sh
 
 alias vi='nvim'
 alias vim='nvim'
-
+alias vimdiff='nvim -d '
 
 if [ $commands[kubectl] ]; then
   source <(kubectl completion zsh)
@@ -162,3 +141,9 @@ export PATH=$PYENV_ROOT/bin:$PATH
 eval "$(pyenv init -)"
 if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
 
+# Go
+if type go 2>/dev/null 1</dev/null
+then
+ export GOPATH=$HOME/go
+ export PATH=$PATH:$GOPATH/bin
+fi

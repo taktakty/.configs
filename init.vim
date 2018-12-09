@@ -34,14 +34,24 @@ nnoremap sK <C-w>K
 nnoremap sL <C-w>L
 nnoremap sH <C-w>H
 nnoremap <ESC><ESC> :noh<CR>
+"nnoremap 7 :res +10<CR> 
+nnoremap    [Tag]   <Nop>
+nmap    t [Tag]
+" Tab jump
+for n in range(1, 9)
+  execute 'nnoremap <silent> [Tag]'.n  ':<C-u>tabnext'.n.'<CR>'
+endfor
+map <silent> [Tag]c :tablast <bar> tabnew<CR>
+map <silent> [Tag]x :tabclose<CR>
+map <silent> [Tag]n :tabnext<CR>
+map <silent> [Tag]p :tabprevious<CR>
+nnoremap <Leader>h :vertical res +10<CR>
+nnoremap <Leader>l :vertical res -10<CR>
 augroup PrevimSettings
   autocmd!
   autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
 augroup END
 let mapleader = ","
-"vimfiler configs
-let g:vimfiler_as_default_explorer = 1
-let g:vimfiler_safe_mode_by_default = 0
 
 "dein Scripts-----------------------------
 if &compatible
@@ -95,8 +105,15 @@ endif
 "End dein Scripts-------------------------
 
 "quick run
-let g:quickrun_config={'*': {'split': 'vertical'}}
-nnoremap <silent> <Leader>rr :QuickRun<CR>
+"let g:quickrun_config={'*': {'split': 'vertical'}}
+let g:quickrun_config = {
+    \ '_' : {
+				\ 'split': 'vertical',
+        \ 'runner' : 'vimproc',
+        \ 'runner/vimproc/updatetime' : 40
+    \ }
+\}
+nnoremap <silent> <Leader>rr :QuickRun -mode n<CR>
 au FileType qf nnoremap <silent><buffer>q :quit<CR>
 set splitbelow
 set splitright
@@ -177,6 +194,3 @@ let g:airline_theme = 'molokai'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#hunks#enabled = 0
 let g:airline#extensions#virtualenv#enabled = 1
-"quickrun
-let g:quickrun_config = {}
-let g:quickrun_config['*'] = {'runner': 'vimproc'}
