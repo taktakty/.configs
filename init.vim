@@ -4,7 +4,11 @@ language en_US
 set mouse=a
 set clipboard+=unnamed
 set number
-set tabstop=2
+set tabstop=4
+augroup fileTypeIndent
+    autocmd!
+    autocmd BufNewFile,BufRead *.yaml setlocal tabstop=2 softtabstop=2 shiftwidth=2
+augroup END
 set noswapfile
 set autoread
 set hidden
@@ -123,12 +127,41 @@ let g:deoplete#enable_at_startup = 1
 " denite configs -------------------------
 call denite#custom#map('insert', 'jj', '<denite:enter_mode:normal>')
 call denite#custom#map('insert', "<CR>", '<denite:do_action:tabopen>')
+call denite#custom#map('normal', "xx", '<denite:do_action:quickfix>')
+call denite#custom#var('grep', 'command', ['ag'])
+call denite#custom#var('grep', 'default_opts',
+		\ ['-i', '--vimgrep'])
+call denite#custom#var('grep', 'recursive_opts', [])
+call denite#custom#var('grep', 'pattern_opt', [])
+call denite#custom#var('grep', 'separator', ['--'])
+call denite#custom#var('grep', 'final_opts', [])
 nnoremap <silent> <Space>f :<C-u>Denite<Space>buffer<Space>file<Space>file_mru<CR>
 nnoremap <silent> <Space>d :<C-u>Denite<Space>directory_mru<CR>
 nnoremap <silent> <Space>b :<C-u>Denite<Space>buffer<CR>
 nnoremap <silent> <Space>r :<C-u>Denite<Space>register<CR>
 nnoremap <silent> <Space><CR> :<C-u>Denite<Space>file_rec<CR>
+nnoremap <silent> <Space>g :<C-u>Denite<Space>grep<CR>
 nnoremap <silent> <Space>c :<C-u>Denite<Space>dirmark<CR>
+if dein#tap('denite.nvim') && dein#tap('vim-qfreplace')
+  function! MyDeniteReplace(context)
+    let qflist = []
+    for target in a:context['targets']
+      if !has_key(target, 'action__path') | continue | endif
+      if !has_key(target, 'action__line') | continue | endif
+      if !has_key(target, 'action__text') | continue | endif
+
+      call add(qflist, {
+            \ 'filename': target['action__path'],
+            \ 'lnum': target['action__line'],
+            \ 'text': target['action__text']
+            \ })
+    endfor
+    call setqflist(qflist)
+    call qfreplace#start('')
+  endfunction
+  call denite#custom#action('file', 'qfreplace', function('MyDeniteReplace'))
+endif
+call denite#custom#map('normal', "qr", '<denite:do_action:qfreplace>')
 
 " defx configs ---------------------------
 nnoremap <silent> <Leader>fi :<C-u>Defx -split=vertical -winwidth=40 -direction=topleft<CR>
