@@ -29,3 +29,11 @@ on_ft = ['python']
 [[plugins]]
 repo = 'kannokanno/previm'
 on_ft = ['markdown']
+
+[[plugins]]
+repo  = 'Quramy/tsuquyomi'
+on_ft = ['typescript']
+
+[[plugins]]
+repo  = 'leafgarland/typescript-vim'
+on_ft = ['typescript']

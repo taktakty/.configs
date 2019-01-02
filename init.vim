@@ -7,8 +7,9 @@ set number
 set tabstop=4
 augroup fileTypeIndent
     autocmd!
-    autocmd BufNewFile,BufRead *.yaml setlocal tabstop=2 softtabstop=2 shiftwidth=2
+    autocmd BufNewFile,BufRead *.yaml,*.ts,*.html,*.scss,*.css setlocal tabstop=2 softtabstop=2 shiftwidth=2
 augroup END
+au BufRead,BufNewFile *.ts   setfiletype typescript
 set noswapfile
 set autoread
 set hidden
