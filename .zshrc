@@ -156,6 +156,7 @@ export PATH="$PATH:/opt/yarn-[version]/bin"
 autoload +X compinit && compinit
 autoload +X bashcompinit && bashcompinit
 complete -C /usr/local/bin/kubesec kubesec
+
 #compdef helm
 
 __helm_bash_source() {
@@ -752,12 +753,12 @@ _helm_dependency()
     commands+=("list")
     if [[ -z "${BASH_VERSION}" || "${BASH_VERSINFO[0]}" -gt 3 ]]; then
         command_aliases+=("ls")
-        aliashash["ls"]="list"
+        aliashash[ls]="list"
     fi
     commands+=("update")
     if [[ -z "${BASH_VERSION}" || "${BASH_VERSINFO[0]}" -gt 3 ]]; then
         command_aliases+=("up")
-        aliashash["up"]="update"
+        aliashash[up]="update"
     fi
 
     flags=()
@@ -1938,12 +1939,12 @@ _helm_repo()
     commands+=("remove")
     if [[ -z "${BASH_VERSION}" || "${BASH_VERSINFO[0]}" -gt 3 ]]; then
         command_aliases+=("rm")
-        aliashash["rm"]="remove"
+        aliashash[rm]="remove"
     fi
     commands+=("update")
     if [[ -z "${BASH_VERSION}" || "${BASH_VERSINFO[0]}" -gt 3 ]]; then
         command_aliases+=("up")
-        aliashash["up"]="update"
+        aliashash[up]="update"
     fi
 
     flags=()
@@ -2455,21 +2456,21 @@ _helm_root_command()
     commands+=("delete")
     if [[ -z "${BASH_VERSION}" || "${BASH_VERSINFO[0]}" -gt 3 ]]; then
         command_aliases+=("del")
-        aliashash["del"]="delete"
+        aliashash[del]="delete"
     fi
     commands+=("dependency")
     if [[ -z "${BASH_VERSION}" || "${BASH_VERSINFO[0]}" -gt 3 ]]; then
         command_aliases+=("dep")
-        aliashash["dep"]="dependency"
+        aliashash[dep]="dependency"
         command_aliases+=("dependencies")
-        aliashash["dependencies"]="dependency"
+        aliashash[dependencies]="dependency"
     fi
     commands+=("fetch")
     commands+=("get")
     commands+=("history")
     if [[ -z "${BASH_VERSION}" || "${BASH_VERSINFO[0]}" -gt 3 ]]; then
         command_aliases+=("hist")
-        aliashash["hist"]="history"
+        aliashash[hist]="history"
     fi
     commands+=("home")
     commands+=("init")
@@ -2479,7 +2480,7 @@ _helm_root_command()
     commands+=("list")
     if [[ -z "${BASH_VERSION}" || "${BASH_VERSINFO[0]}" -gt 3 ]]; then
         command_aliases+=("ls")
-        aliashash["ls"]="list"
+        aliashash[ls]="list"
     fi
     commands+=("package")
     commands+=("plugin")
