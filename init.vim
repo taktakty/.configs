@@ -228,3 +228,7 @@ let g:airline_theme = 'molokai'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#hunks#enabled = 0
 let g:airline#extensions#virtualenv#enabled = 1
+"emmit-vim
+let g:user_emmet_mode = 'iv'
+let g:user_emmet_leader_key = '<C-Y>'
+let g:use_emmet_complete_tag = 1
