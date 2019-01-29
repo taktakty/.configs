@@ -2552,3 +2552,7 @@ fi
 BASH_COMPLETION_EOF
 }
 __helm_bash_source <(__helm_convert_bash_to_zsh)
+
+## Docker Env
+export DOCKER_HOST=tcp://192.168.100.1:2376 DOCKER_TLS_VERIFY=1
+

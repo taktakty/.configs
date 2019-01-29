@@ -39,6 +39,10 @@ nnoremap sK <C-w>K
 nnoremap sL <C-w>L
 nnoremap sH <C-w>H
 nnoremap <ESC><ESC> :noh<CR>
+inoremap <C-j> <DOWN>
+inoremap <C-k> <UP>
+inoremap <C-l> <RIGHT>
+inoremap <C-h> <LEFT>
 "nnoremap 7 :res +10<CR> 
 nnoremap    [Tag]   <Nop>
 nmap    t [Tag]
