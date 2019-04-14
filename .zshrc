@@ -2554,5 +2554,17 @@ BASH_COMPLETION_EOF
 __helm_bash_source <(__helm_convert_bash_to_zsh)
 
 ## Docker Env
-export DOCKER_HOST=tcp://192.168.100.1:2376 DOCKER_TLS_VERIFY=1
+export DOCKER_TLS_VERIFY="1"
+export DOCKER_HOST="tcp://192.168.99.100:2376"
+export DOCKER_CERT_PATH="/Users/tak/.docker/machine/machines/docker-for-mac"
+export DOCKER_MACHINE_NAME="docker-for-mac"
+## gh-md-toc
+eval "$(gh-md-toc --completion-script-zsh)"
+## govc
+export GOVC_URL='vs-vcs-00.taklab.net'
+export GOVC_USERNAME='administrator@taklab.net'
+export GOVC_PASSWORD='t2A5k2dy!'
+export GOVC_INSECURE=1
 
+export DJANGO_READ_DOT_ENV_FILE=True
+export KUBECONFIG=~/.kube/adm-cluster

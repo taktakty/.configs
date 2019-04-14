@@ -43,6 +43,7 @@ inoremap <C-j> <DOWN>
 inoremap <C-k> <UP>
 inoremap <C-l> <RIGHT>
 inoremap <C-h> <LEFT>
+inoremap <C-S-J> <Nop>
 "nnoremap 7 :res +10<CR> 
 nnoremap    [Tag]   <Nop>
 nmap    t [Tag]
