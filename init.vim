@@ -22,8 +22,8 @@ set inccommand=split
 let g:previm_open_cmd = 'open -a Safari'
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 let $PATH = $PYENV_VIRTUAL_ENV."/bin:".$PATH
-let g:python_host_prog  = '/Users/tak/.pyenv/versions/py2neovim/bin/python'
-let g:python3_host_prog  = '/Users/tak/.pyenv/versions/py3neovim/bin/python'
+let g:python_host_prog = $PYENV_ROOT.'/versions/neovim2/bin/python'
+let g:python3_host_prog = $PYENV_ROOT.'/versions/neovim3/bin/python'
 
 nnoremap j gj
 nnoremap k gk
