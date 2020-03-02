@@ -14,4 +14,6 @@ ln -sf ~/dotfiles/bash_profile ~/.bash_profile
 # nvim
 ln -sf ~/dotfiles/dein.toml ~/.config/nvim/dein.toml
 ln -sf ~/dotfiles/dein_lazy.toml ~/.config/nvim/dein_lazy.toml
+# ignore
+ln -sf ~/dotfiles/ignore ~/.config/git/ignore
 ```

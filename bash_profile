@@ -65,7 +65,7 @@ export NATURE_THEME_SHOW_PYTHON=true
 # Neovim
 export XDG_CONFIG_HOME="$HOME/.config"
 
-# Pyevn
+# Pyenv
 export PYENV_ROOT="$HOME/.pyenv"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
@@ -74,6 +74,9 @@ eval "$(pyenv virtualenv-init -)"
 if [ -f ~/.bashrc ]; then
   . ~/.bashrc
 fi
+
+# nodenv
+eval "$(nodenv init -)"
 
 # Added Path
 export PATH="$PYENV_ROOT/bin:/usr/local/opt/gettext/bin:/usr/local/opt/python@3.8/bin:$PATH"
