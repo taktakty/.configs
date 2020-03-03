@@ -83,3 +83,5 @@ export PATH="$PYENV_ROOT/bin:/usr/local/opt/gettext/bin:/usr/local/opt/python@3.
 export LDFLAGS="-L/usr/local/opt/gettext/lib -L/usr/local/opt/readline/lib -L/usr/local/opt/openssl@1.1/lib -L/usr/local/opt/python@3.8/lib"
 export CPPFLAGS="-I/usr/local/opt/gettext/include -I/usr/local/opt/readline/include -I/usr/local/opt/openssl@1.1/include"
 export PKG_CONFIG_PATH="/usr/local/opt/openssl@1.1/bin:/usr/local/opt/readline/lib/pkgconfig:/usr/local/opt/openssl@1.1/lib/pkgconfig:/usr/local/opt/python@3.8/lib/pkgconfig"
+
+complete -C /usr/local/bin/mc mc
