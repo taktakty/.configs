@@ -77,12 +77,14 @@ fi
 
 # Golang
 export GOPATH=$HOME/go
+export GOENV_ROOT=$HOME/.goenv
+eval "$(goenv init -)"
 
 # nodenv
 eval "$(nodenv init -)"
 
 # Added Path
-export PATH="$GOPATH/bin:$PYENV_ROOT/bin:/usr/local/opt/gettext/bin:/usr/local/opt/python@3.8/bin:$PATH"
+export PATH="$HOME/.goenv/bin:$GOENV_ROOT/bin:$GOPATH/bin:$PYENV_ROOT/bin:/usr/local/opt/gettext/bin:/usr/local/opt/python@3.8/bin:$PATH"
 export LDFLAGS="-L/usr/local/opt/gettext/lib -L/usr/local/opt/readline/lib -L/usr/local/opt/openssl@1.1/lib -L/usr/local/opt/python@3.8/lib"
 export CPPFLAGS="-I/usr/local/opt/gettext/include -I/usr/local/opt/readline/include -I/usr/local/opt/openssl@1.1/include"
 export PKG_CONFIG_PATH="/usr/local/opt/openssl@1.1/bin:/usr/local/opt/readline/lib/pkgconfig:/usr/local/opt/openssl@1.1/lib/pkgconfig:/usr/local/opt/python@3.8/lib/pkgconfig"
