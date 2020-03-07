@@ -2568,3 +2568,5 @@ export GOVC_INSECURE=1
 
 export DJANGO_READ_DOT_ENV_FILE=True
 export KUBECONFIG=~/.kube/adm-cluster
+
+complete -o nospace -C /usr/local/bin/mc mc

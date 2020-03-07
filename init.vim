@@ -129,7 +129,7 @@ set splitbelow
 set splitright
 
 " deoplete
-let g:deoplete#enable_at_startup = 1
+let g:deoplete#enable_at_startup = 0
 " denite configs -------------------------
 call denite#custom#map('insert', 'jj', '<denite:enter_mode:normal>')
 call denite#custom#map('insert', "<CR>", '<denite:do_action:tabopen>')
